@@ -1,0 +1,17 @@
+# MRI dataset
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Model checkpoints
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.h5
+
+# Generated results
+results/
+.DS_Store

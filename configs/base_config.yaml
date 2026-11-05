@@ -1,0 +1,27 @@
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed_2d"
+  splits_file: "data/splits/patient_folds.json"
+  target_size: [224, 224]
+  num_folds: 5
+  selected_fold: 0
+
+model:
+  in_channels: 1
+  num_classes: 1
+  embed_dim: 768
+  mc_dropout_rate: 0.2
+
+training:
+  batch_size: 4             # Reduced from 16 to 8 for unified memory stability
+  epochs: 50                 # Start with 50 epochs
+  learning_rate: 0.0001
+  weight_decay: 0.00001
+  device: "mps"              # Uses Apple Silicon GPU acceleration (Metal)
+  checkpoint_dir: "checkpoints"
+  save_interval: 5
+
+loss_weights:
+  lambda_focal: 1.0
+  lambda_dice: 1.0
+  lambda_boundary: 0.5
